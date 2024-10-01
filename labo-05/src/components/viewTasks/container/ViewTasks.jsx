@@ -1,22 +1,24 @@
 import React from "react";
-import Task from "../../task/card/Task.jsx";
-import CounterTasks from "../counter/counterTasks.jsx";
-import "./viewTask.css";
+import Task from "../../task/card/Task";
+import CounterTasks from "../counter/CounterTasks.jsx";
+import "./ViewTasks.css";
 const ViewTasks = ({ tasks, deleteTaskById, onCompletedTask }) => {
   return (
     <section className="tasks-container">
-      {<CounterTasks tasks={tasks} />}
+      <CounterTasks tasks={tasks} />
       <div className="list-tasks">
-        {
+        
+        {tasks.map((task) => (
           <Task
             key={task.id}
             task={task}
             deleteTaskById={deleteTaskById}
             onCompletedTask={onCompletedTask}
           />
-        }
+        ))}
       </div>
     </section>
   );
 };
+
 export default ViewTasks;

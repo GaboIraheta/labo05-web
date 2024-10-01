@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import { MdExposurePlus1 } from "react-icons/md";
-import "./taskForm.css";
+import "./TaskForm.css";
+
 const FormTask = ({ handleAddTask }) => {
   const [title, setTitle] = useState("");
-
   const handleSubmit = (event) => {
     event.preventDefault();
-
     handleAddTask(title);
     console.log(title);
     setTitle("");
   };
-
   const onChangeTitle = (event) => {
-    setTitle(event.tarjet.value);
+    setTitle(event.target.value);
   };
 
   return (
